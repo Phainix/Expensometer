@@ -1,12 +1,15 @@
 import { h, app } from "hyperapp";
 
+//app files
+import actions from './actions';
+import state from './state';
+import view from './components/App';
+
+//app style
+//import "../style/app.css";
+console.log(state);
 app({
-  init: 0,
-  view: state =>
-    h("div", {}, [
-      h("h1", {}, state),
-      h("button", { onClick: state => state - 1 }, "-"),
-      h("button", { onClick: state => state + 1 }, "+")
-    ]),
-  node: document.getElementById("app")
-})
+    init: state,
+    node: document.getElementById("app"),
+    view: view
+});
